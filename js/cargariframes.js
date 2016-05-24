@@ -115,7 +115,7 @@ function cargarStreaming2() {
 			
 			$('.contenedorStreaming').html(
 	
-			  '<iframe class="iframe_streaming" src="" style="width: '+ancho_iframe+'px; height: '+alto_pantalla+'px; border: none;">'+
+			  '<iframe class="iframe_streaming" src="" style="width: '+ancho_iframe+'px; height: '+alto_pantalla+'px; border: none;" allowfullscreen>'+
 				'<p>Descargando Streaming...</p>'+
 			  '</iframe>'
 			  
@@ -125,7 +125,7 @@ function cargarStreaming2() {
 			
 			$('.contenedorStreaming').html(
 	
-			  '<iframe class="iframe_streaming" src="" style="width: 100%; height: '+altura_iframe+'px; border: none;">'+
+			  '<iframe class="iframe_streaming" src="" style="width: 100%; height: '+altura_iframe+'px; border: none;" allowfullscreen>'+
 				'<p>Descargando Streaming...</p>'+
 			  '</iframe>'
 			  
