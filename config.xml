@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- config.xml reference: https://build.phonegap.com/docs/config-xml -->
+<widget xmlns     = "http://www.w3.org/ns/widgets"
+        xmlns:gap = "http://phonegap.com/ns/1.0"
+        id        = "com.creatactil.tfmas"
+		versionCode="1"
+		version   = "1.0.0">
+
+    <name>TENERIFE + SOSTENIBLE</name>
+
+    <description>
+			Congreso Tenerife + Sostenible
+    </description>
+
+    <author href="http://www.creatactil.com" email="info@creatactil.com">
+        Creatactil S.L.
+    </author>
+	
+	<gap:config-file platform="ios" parent="CFBundleShortVersionString">
+    <string>100</string>
+    </gap:config-file>
+
+    <preference name="permissions"                value="none"/>
+
+    <!-- Customize your app and platform with the preference element. -->
+	<preference name="phonegap-version" value="cli-5.4.1" />
+    <preference name="orientation"                value="default" />        <!-- all: default means both landscape and portrait are enabled -->
+    <preference name="target-device"              value="universal" />      <!-- all: possible values handset, tablet, or universal -->
+    <preference name="fullscreen"                 value="false" />           <!-- all: hides the status bar at the top of the screen -->
+    <preference name="webviewbounce"              value="true" />           <!-- ios: control whether the screen 'bounces' when scrolled beyond the top -->
+    <preference name="prerendered-icon"           value="true" />           <!-- ios: if icon is prerendered, iOS will not apply it's gloss to the app's icon on the user's home screen -->
+    <preference name="stay-in-webview"            value="false" />          <!-- ios: external links should open in the default browser, 'true' would use the webview the app lives in -->
+    <preference name="ios-statusbarstyle"         value="black-opaque" />   <!-- ios: black-translucent will appear black because the PhoneGap webview doesn't go beneath the status bar -->
+    <preference name="detect-data-types"          value="true" />           <!-- ios: controls whether data types (such as phone no. and dates) are automatically turned into links by the system -->
+    <preference name="exit-on-suspend"            value="false" />          <!-- ios: if set to true, app will terminate when home button is pressed -->
+    <preference name="show-splash-screen-spinner" value="true" />           <!-- ios: if set to false, the spinner won't appear on the splash screen during app loading -->
+    <preference name="auto-hide-splash-screen"    value="true" />           <!-- ios: if set to false, the splash screen must be hidden using a JavaScript API -->
+    <preference name="disable-cursor"             value="false" />          <!-- blackberry: prevents a mouse-icon/cursor from being displayed on the app -->
+    <preference name="android-minSdkVersion"      value="7" />              <!-- android: MIN SDK version supported on the target device. MAX version is blank by default. -->
+    <preference name="android-installLocation"    value="auto" /> 
+
+  
+   <gap:platform name="android" />
+  
+    <!-- Plugins -->
+
+    <!-- Core plugins -->
+		<plugin name="com.phonegap.plugins.pushplugin" source="pgb" spec="2.5.0" />
+		<plugin name="hu.dpal.phonegap.plugins.uniquedeviceid" source="pgb" spec="1.2.0" />
+		<gap:plugin name="org.apache.cordova.console" />
+		<gap:plugin name="org.apache.cordova.device" />
+		<gap:plugin name="org.apache.cordova.device-motion" />
+		<gap:plugin name="org.apache.cordova.device-orientation" />
+		<gap:plugin name="org.apache.cordova.dialogs" />
+		<gap:plugin name="org.apache.cordova.file" />
+		<gap:plugin name="org.apache.cordova.file-transfer" />
+		<gap:plugin name="org.apache.cordova.globalization" />
+		<gap:plugin name="org.apache.cordova.inappbrowser" />
+		<gap:plugin name="org.apache.cordova.network-information" />
+		<gap:plugin name="org.apache.cordova.splashscreen" />
+		<gap:plugin name="org.apache.cordova.vibration" />
+		<plugin name="com.indigoway.cordova.whitelist.whitelistplugin" spec="1.1.1" source="pgb" />
+		
+
+   
+		<feature name="http://api.phonegap.com/1.0/file"/>
+		<feature name="http://api.phonegap.com/1.0/media"/>
+		<feature name="http://api.phonegap.com/1.0/network"/>
+		<feature name="http://api.phonegap.com/1.0/notification"/>
+		<feature name="http://api.phonegap.com/1.0/device"/>
+		
+		<feature name="PushPlugin">
+  		<param name="android-package" value="com.plugin.gcm.PushPlugin" />
+		</feature>
+
+    <!-- Define app icon for each platform. -->
+    <icon src="icon.png" />
+    <icon src="imagenes/36.png" gap:platform="android" gap:density="ldpi" />
+	<icon src="imagenes/48.png" gap:platform="android" gap:density="mdpi" />
+	<icon src="imagenes/72.png" gap:platform="android" gap:density="hdpi" />
+	<icon src="imagenes/96.png" gap:platform="android" gap:density="xhdpi" />
+	<icon src="imagenes/144.png" gap:platform="android" gap:density="xxhdpi" />
+    
+
+    <!-- Define app splash screen for each platform. -->
+    <gap:splash src="splash/android(240).png" gap:platform="android" gap:density="ldpi" />
+	<gap:splash src="splash/android(320).png" gap:platform="android" gap:density="mdpi" />
+	<gap:splash src="splash/android(480).png" gap:platform="android" gap:density="hdpi" />
+	<gap:splash src="splash/android(720).png" gap:platform="android" gap:density="xhdpi" />
+	
+	
+    
+
+    <!--
+        Define access to external domains.
+        <access />            - a blank access tag denies access to all external resources.
+        <access origin="*" /> - a wildcard access tag allows access to all external resource.
+        Otherwise, you can specify specific domains:
+    -->
+    <access origin="*"/>
+  
+
+</widget>
