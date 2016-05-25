@@ -1,64 +1,41 @@
 function registrarColegiado() {
 
                	
-				var xnumero = $("#numero").val().toLowerCase();
-				var xnombre = $("#nombre").val().toUpperCase();
-    		  	var xapellidos = $("#apellidos").val().toUpperCase();
-				var xtelefono = $("#telefono").val();
-				var xcorreo = $("#correo").val();
-				var xpa1 = $("#pa1").val();
-				var xisla = $("#isla").val();
-				
-				var xregid = $("#regId").val();
-				
-					
-				
-		if(document.formulario1.numero.value.length ==  ""){
-		alert("Escriba su Código de activación");
-		document.formulario1.numero.focus();
-		return false;
+		//var xnumero = $("#numero").val().toLowerCase();
+		//var xapellidos = $("#apellidos").val().toUpperCase();
+		//var xtelefono = $("#telefono").val();
+		//var xisla = $("#isla").val();		
+		var xnombre = $("#nombre").val().toUpperCase();		
+		var xcorreo = $("#correo").val();
+		var xpa1 = $("#pa1").val();
+		var xregid = $("#regId").val();
+		//alert(xnombre);
 		
-		}else if(document.formulario1.nombre.value.length == ""){
+		var xcorreo_anterior=localStorage.correo;
+		var xpass_anterior=localStorage.pass;
+		var xnombre_anterior=localStorage.nombre;
+
+		if(xnombre == ""){
 		alert("Escriba su nombre");
-		document.formulario1.nombre.focus();
+		$('#nombre').focus();
 		return false;
 		
-		}else if(document.formulario1.apellidos.value.length ==  ""){
-		alert("Escriba sus apellidos ");
-		document.formulario1.apellidos.focus();
-		return false;	
-		
-		}else if(document.formulario1.telefono.value.length ==  ""){
-		alert("Escriba su número movil ");
-		document.formulario1.telefono.focus();
-		return false;
-		
-		}else if(document.formulario1.correo.value.length == ""){
+		}else if(xcorreo == ""){
 		alert("Escriba su correo");
-		document.formulario1.correo.focus();
+		$('#correo').focus();
 		return false;
 		
-		}else if(document.formulario1.pa1.value.length == ""){
+		}else if(xpa1 == ""){
 		alert("Escriba su contraseña");
-		document.formulario1.pa1.focus();
-		return false;
-		
-		}else if(document.formulario1.isla.value.length == ""){
-		alert("Elija su isla");
-		document.formulario1.isla.focus();
+		$('#pa1').focus();
 		return false;
 		
 		}else		
-			
-			
-			
-			
-			
-			
+
 		   $.ajax({
            type: "POST",
            url: "http://apptfmas.creatactil.com/php/registrocolegiado.php",
-           data: ({numero: xnumero, nombre: xnombre, apellidos: xapellidos, telefono: xtelefono, correo: xcorreo, isla: xisla, regid: xregid, pa1: xpa1}),
+           data: ({nombre: xnombre, correo: xcorreo, regid: xregid, pa1: xpa1, correo_anterior: xcorreo_anterior, pass_anterior: xpass_anterior, nombre_anterior: xnombre_anterior}),
                       cache: false,
                       dataType: "text",
                       success: onSuccess
@@ -75,29 +52,124 @@ function registrarColegiado() {
 					
 					if (data=="Datos guardados"){
 					
-				localStorage.numero = xnumero;
-				localStorage.correo = xcorreo;
-				localStorage.pass = xpa1;
-				localStorage.nombre = xnombre;
-				localStorage.apellidos = xapellidos;
-				localStorage.telefono = xtelefono;
-				
-				inicio();
-				globo();
-				}
-			
+						localStorage.correo = xcorreo;
+						localStorage.pass = xpa1;
+						localStorage.nombre = xnombre;
+						//localStorage.numero = xnumero;				
+						//localStorage.apellidos = xapellidos;
+						//localStorage.telefono = xtelefono;
+						//localStorage.isla = xisla;
+					
+						inicio();
+						globo();
+					}
+					
+					if (data=="Datos actualizados"){
+					
+						localStorage.correo = xcorreo;
+						localStorage.pass = xpa1;
+						localStorage.nombre = xnombre;
+					
+						inicio();
+						globo();
+					}
 					}//fin onSuccess
 			
-		/*var n = xnumero.length;
-		if(n == 1){
-			xnumero = "38000"+xnumero;
-		}else if(n == 2){
-			xnumero = "3800"+xnumero;
-		}else if(n == 3){
-			xnumero = "380"+xnumero;
-		}else{
-			xnumero = "38"+xnumero;
-		}*/
+				
 		
+  }
+  
+  
+ function registrarColegiado2() {
+
+               	
+		//var xnumero = $("#numero").val().toLowerCase();
+		//var xapellidos = $("#apellidos").val().toUpperCase();
+		//var xtelefono = $("#telefono").val();
+		//var xisla = $("#isla").val();		
+		var xnombre2 = $("#nombre2").val().toUpperCase();		
+		var xcorreo2 = $("#correo2").val();
+		var xpa12 = $("#pa12").val();
+		var xregid = $("#regId").val();
+		
+				
+		var xcorreo_anterior = localStorage.correo;
+		var xpass_anterior = localStorage.pass;
+		var xnombre_anterior = localStorage.nombre;
+		
+			
+		if(xnombre2 == ""){
+		alert("Enter your name");
+		$('#nombre2').focus();
+		return false;
+		
+		}else if(xcorreo2 == ""){
+		alert("Enter your email");
+		$('#correo2').focus();
+		return false;
+		
+		}else if(xpa12 == ""){
+		alert("Enter your password");
+		$('#pa12').focus();
+		return false;
+		
+		}else		
+
+		   $.ajax({
+           type: "POST",
+           url: "http://apptfmas.creatactil.com/php/registrocolegiado.php",
+           data: ({nombre: xnombre2, correo: xcorreo2, regid: xregid, pa1: xpa12, correo_anterior: xcorreo_anterior, pass_anterior: xpass_anterior, nombre_anterior: xnombre_anterior}),
+                      cache: false,
+                      dataType: "text",
+                      success: onSuccess
+					  
+					  
+					  
+                    });
+        	
+			
+					function onSuccess(data)
+					{
+					
+					if(data == "Datos actualizados"){
+						alert("Updated Data");
+					
+					}else if (data == "No se permite modificar el email, solo el Nombre y/o la contraseña"){
+						alert("No to modify the email, only the name and/or password");
+					
+					}else if(data == "Ya existe un usuario registrado con ese email."){
+						alert("Already a registered user with that email exists.");
+						
+					}else if(data == "Datos guardados"){
+						alert("Saved Data");
+					}
+					
+					
+					if (data=="Datos guardados"){
+					
+						localStorage.correo = xcorreo2;
+						localStorage.pass = xpa12;
+						localStorage.nombre = xnombre2;
+						//localStorage.numero = xnumero;				
+						//localStorage.apellidos = xapellidos;
+						//localStorage.telefono = xtelefono;
+						//localStorage.isla = xisla;
+					
+						inicio();
+						//globo();
+					}
+					
+					if (data=="Datos actualizados"){
+					
+						localStorage.correo = xcorreo2;
+						localStorage.pass = xpa12;
+						localStorage.nombre = xnombre2;
+					
+						inicio();
+						globo();
+					}
+					}//fin onSuccess
+			
+				
 		
   }

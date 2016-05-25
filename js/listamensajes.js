@@ -1,12 +1,10 @@
 function crearLista() {
 				
-    	var xnumero = localStorage.numero;
-		$.mobile.changePage("#page4", {transition: "slide"},
-            true,
-            true);
+    	//var xnumero = localStorage.numero;
+		$.mobile.changePage("#page4", {transition: "fade"}, true, true);
 	
-			$('#page4 ul').empty();
-            $("#carga23").show();
+		$('#page4 ul').empty();
+        $("#carga23").show();
 		                 
 						
 		$.ajax({
@@ -15,7 +13,7 @@ function crearLista() {
 		jsonp: 'jsoncallback',
 		timeout: 5000,
 		
-		data: {numero: xnumero},
+		data: {},
 		success: function(data){			
 	   	 
 		     
@@ -29,8 +27,9 @@ function crearLista() {
 			
 			$('#id_'+index).remove();
 			
-			var verde = "#dea300";
+			var colorfecha = "#000000";
 				
+			estado = 0;
 			if(estado==0){
 				var tema = "#000000";
 				var listo = "#lista";
@@ -38,56 +37,59 @@ function crearLista() {
 				}else{	
 				var tema = "#A4A4A4";
 				var listo = "#lista";}
-									
+			
+			if(item.enlace == ''){
+				var enlace = "recursos/img-noticia-default.png"
+			}else{
+				var enlace = "http://tfmas.creatactil.com/files/"+item.enlace
+			}
+					
 			$(listo).append(			
 		
-       		'<li class="ui-li-has-alt ui-li-has-thumb" style="height: 60px"><a href="#" class="ui-btn" onclick="changePage(id_' + index + '), contador(\''+registro+'\');" style="height: 60px; padding:0;" >'+
-			'<img src="imagenes/icono.jpg" class="ui-li-thumb" style="margin-top: 5px; margin-left: 5px; height: 50px">'+
+       		'<li class="ui-li-has-alt ui-li-has-thumb" style="height: 80px"><a href="#" class="ui-btn" onclick="changePage(id_' + index + '), contador(\''+registro+'\');" style="height: 80px;padding: 0px;margin: 0;border: solid 1px silver;" >'+
 			
-		'<p style="margin-left:60px; margin-top:5px; font-weight: bold; color:'+tema+'" >'+item.titulo+'</p>'+
+			//'<img src="'+enlace+'" class="ui-li-thumb" style="margin-top: 5px;margin-left: 5px;height: 50px;border-radius: 50%;">'+
+			
+			'<div style="margin-top: 5px;margin-left: 5px;background-image:url(\''+enlace+'\');width:70px;height:70px;background-position:center;background-repeat:no-repeat;background-size:cover;border-radius:50%;"></div>'+
+			
+		    '<p style="margin-left:80px;margin-right:5px;margin-top:-70px;font-weight:bold;font-size:12px;color:'+tema+';white-space: normal;max-height: 56px;" >'+item.titulo+'</p>'+
 		
-		'<p style="margin-left:60px; padding:0; color:'+verde+'; font-size: 0.7em ">'+'Nº Registro:  '+item.registro+'<br>'+
-    	''+'Fecha: '+''+item.fecha+'</p>'+
+		    '<p style="margin-left:80px; margin-top:-5px; padding:0; color:'+colorfecha+'; font-size: 0.7em ">'+item.fecha+'</p>'+
 		
-       '<a href="#" data-rel="popup" data-position-to="window" data-transition="pop" aria-haspopup="true" aria-owns="purchase" aria-expanded="false" class="ui-btn ui-btn-icon-notext ui-icon-delete ui-btn-b" onClick="borrarMensaje(\''+item.id_aux+'\' )" style="height: 62px;">'+
-		'</a>'+
-    	'</li>'
+            //'<a href="#" data-rel="popup" data-position-to="window" data-transition="pop" aria-haspopup="true" aria-owns="purchase" aria-expanded="false" class="ui-btn ui-btn-icon-notext ui-icon-delete ui-btn-b" onClick="borrarMensaje(\''+item.id_aux+'\' )" style="height: 62px;"></a>'+
+    	    '</li>'
+			
+			);
 
+			if(localStorage.idioma=='en') {var noticia = 'News';}else{var noticia = 'Noticia';}
+			if($(window).width()>$(window).height()) {var anchoNoticia = 'width:60%';}else{var anchoNoticia = '';}
 			
-		);
-			
-		/*Pagina dinamica*/
+			/*Pagina dinamica*/
 		    content = 
-			'<div data-role="page"  id="id_' + index + '" data-url="id_' + index + '" data-theme="a" >' +
-					
-					'<div data-role="header" data-theme="a">' + 
-					'<a href="#page4" onClick="crearLista()" data-role="button" data-icon="carat-l" data-iconpos="notext" data-theme="a" class="ui-link ui-btn-left ui-btn ui-btn-a ui-icon-carat-l ui-btn-icon-notext ui-shadow ui-corner-all" role="button"><span class="ui-btn-inner ui-corner-bottom ui-controlgroup-last" aria-hidden="true"><span class="ui-btn-text">Atrás</span><span class="ui-icon ui-icon-back ui-icon-shadow"></span></span></a>'+
-					'<h1 style="margin: 0 15%">' + item.titulo + '</h1>' +
-					
-					'</div>' +
-					'<div data-role="content" id="contenido" >' +
-					'<p style="margin:-1em; padding:0;">' +
-                    '<div data-role="fieldcontain" class="result" >' +
-                    '<p style="margin:0; padding:0; color:#dea300; font-size: 0.9em ">Nº de Registro: '+item.registro+'<br>'+
-                    'Fecha: '+item.fecha+'</p>'+
-                    
-					'<p>'+ item.texto + '</p>' +
-					'<p><strong>'+item.nombre+'</strong></p>'+
-                    '<a href="" onclick="descargarArchivo(\''+item.enlace+'\')" >'+item.enlace+'</a>'+
-								  '<br>'+
-								  '<a href="#page11" style="color:#dea300"  data-rel="pop" onClick="textofirma(\''+item.registro+'\' ), textofirma2(\''+item.titulo+'\' )">'+item.firma+'</a>'+
-								   '<br>'+
-								   '<center>'+
-								'<a id="favorito" data-role="button" data-icon="star" data-inline="true" onclick="favorito(\''+id_aux+'\');" data-theme="a">Añadir a Favorito</a>'+
-								'</center>'+
-                                  '</div>' +
-								  
-                                '</p>' +
-							  	
-		
-	
-								'</div>';
-	   
+			'<div data-role="page"  id="id_' + index + '" data-url="id_' + index + '" data-theme="a" >' +	
+			'<div data-role="header" data-theme="a">' + 
+			'<a href="#page4" onClick="crearLista()" data-role="button" data-icon="carat-l" data-iconpos="notext" data-theme="a" class="ui-link ui-btn-left ui-btn ui-btn-a ui-icon-carat-l ui-btn-icon-notext ui-shadow ui-corner-all" role="button"><span class="ui-btn-inner ui-corner-bottom ui-controlgroup-last" aria-hidden="true"><span class="ui-btn-text">Atrás</span><span class="ui-icon ui-icon-back ui-icon-shadow"></span></span></a>'+
+			'<h1 style="margin: 0 15%">' + noticia + '</h1>' +
+			'</div>' +
+			'<div data-role="content" id="contenido" style="'+anchoNoticia+' ;margin: auto;">' +
+			'<p style="margin:-1em; padding:0;">' +
+            '<div data-role="fieldcontain" class="result" >' +
+            '<img src="'+enlace+'" style="width: 100%;">'+
+            '<p style="margin:0; padding:0; color:#000; font-size: 1.1em ">'+item.titulo+'</p>'+
+            '<p style="margin:0; padding:0; color:#000; font-size: 0.9em ">'+item.fecha+'</p>'+
+			'<p>'+ item.texto + '</p>' +
+			//'<p><strong>'+item.nombre+'</strong></p>'+
+            //'<a href="" onclick="descargarArchivo(\''+item.enlace+'\')" >'+item.enlace+'</a>'+
+			//'<br>'+
+			//'<a href="#page11" style="color:#dea300"  data-rel="pop" onClick="textofirma(\''+item.registro+'\' ), textofirma2(\''+item.titulo+'\' )">'+item.firma+'</a>'+
+			//'<br>'+
+			//'<center>'+
+			//'<a id="favorito" data-role="button" data-icon="star" data-inline="true" onclick="favorito(\''+id_aux+'\');" data-theme="a">Añadir a Favorito</a>'+
+			//'</center>'+
+            '</div>' +								  
+            '</p>' +							  
+			'</div>';
+			
 			
 			$('body').append(content).trigger('refresh');
 			$(index).page();
@@ -99,7 +101,7 @@ function crearLista() {
 		
 		});
 			
-			$('#piepagina').append(
+			/*$('#piepagina').append(
     '<div data-role="navbar" class="ui-navbar" role="navigation">'+
     '<ul class="ui-grid-c">'+
     '<li class="ui-block-a"><a href="#page1" data-transition="slide" onclick="globo()" data-icon="home" class="ui-link ui-btn ui-icon-home ui-btn-icon-top ui-shadow" role="button">Inicio</a></li>'+
@@ -108,7 +110,7 @@ function crearLista() {
     '<li class="ui-block-d"><a href="#page5" onclick="" class="ui-link ui-btn ui-icon-info ui-btn-icon-top ui-shadow" role="button">Ayuda</a></li>'+
     '</ul>'+
 	'</div>'
-			);
+			);*/
 	
 			
 		  	$('#lista').listview('refresh', true);
@@ -133,7 +135,26 @@ function borrar1(id_aux){
 	$("#id_aux3").val(elidaux);	
 	
 	}
-
+	
+//Camabia el estado del mensaje de no leido a leido
+/* function modificaEstado(registro){
+	
+	var registro2 = registro;
+	var xnumero2 = localStorage.numero;
+	
+	
+	$.ajax({
+		url: 'http://apptfmas.creatactil.com/php/modificaestado.php',
+		dataType: 'jsonp',
+		jsonp: 'jsoncallback',
+		timeout: 5000,
+		
+		data: {numero: xnumero2, registro: registro2},
+		success: function(data){}
+		
+		});
+		globo();
+	} */
 	
 //Añade al contador de mensaje
 function contador(registro){

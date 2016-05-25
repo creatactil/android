@@ -1,6 +1,8 @@
 function init(){
 	
-	var xnumero = localStorage.numero;
+	//var xnumero = localStorage.numero;
+	var xcorreo = localStorage.correo;
+	var xidioma = localStorage.idioma;
 	
 	$("#usuario").val(localStorage.correo);
 	$("#pa2").val(localStorage.pass);
@@ -12,17 +14,18 @@ function init(){
 	
 	//cargaweb();
 	
-	if ((typeof xnumero == 'undefined') || (xnumero == "")){
+	if ((typeof xcorreo == 'undefined') || (xcorreo == "")){
 		
-		$.mobile.changePage("#page0", {transition: "slide"},
-            true,
-            true);
+			if (xidioma == 'en') {
+				$.mobile.changePage("#pagina0en", {transition: "slide"}, true, true);
+			
+			}else{
+				$.mobile.changePage("#pagina0", {transition: "slide"}, true, true);
+			}
 		
-		}else{
-			inicio();
-			setTimeout('comprobarid()',8000);
-		}
-	
+	}else{
+		inicio();
+	}
 	}
 	
 

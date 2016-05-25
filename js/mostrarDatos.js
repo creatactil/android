@@ -13,6 +13,7 @@ function mostrarDatos(){
 	var visla = localStorage.isla;
 	
 	
+	
 	$("#numero").val(vnumero);
 	$("#nombre").val(vnombre);
 	$("#apellidos").val(vapellidos);

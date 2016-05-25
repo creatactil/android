@@ -72,6 +72,34 @@ h1{
     background-position: 0 -80px;
 }
 
+#imgGooglePlus {
+    background-image: url('../imagenes/googleplus.png');
+	background-position: 0 0;
+    background-repeat: no-repeat;
+    background-size: 80px 160px;
+    display: inline-block;
+    height: 80px;
+    width: 80px;
+}
+
+#imgGooglePlus:hover {
+    background-position: 0 -80px;
+}
+
+#imgInstagram {
+    background-image: url('../imagenes/instagram.png');
+	background-position: 0 0;
+    background-repeat: no-repeat;
+    background-size: 80px 80px;
+    display: inline-block;
+    height: 80px;
+    width: 80px;
+}
+
+#imgInstagram:hover {
+    opacity: 0.5;
+}
+
 #imgCompartir {
     background-image: url('../imagenes/compartir.png');
 	background-position: 0 0;
@@ -102,6 +130,7 @@ h1{
 
 .boton-tfmas:hover {
     opacity: 0.5;
+    cursor: pointer;
 }
 
 /*#page4 div div ul li a {

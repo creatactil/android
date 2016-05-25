@@ -1,5 +1,13 @@
 function desconectar(){
 	
-	localStorage.removeItem("numero");
-	$.mobile.changePage("#pagina0");
+	var xidioma = localStorage.idioma;
+	
+	if(xidioma== "en"){
+		localStorage.removeItem("numero");
+		$.mobile.changePage("#pagina0en")
+	}else{
+		localStorage.removeItem("numero");
+		$.mobile.changePage("#pagina0");
+		
+		}
 	}

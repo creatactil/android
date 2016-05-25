@@ -1,6 +1,6 @@
 function inicio(){
-	globo();
+	//globo();
 	$.mobile.changePage("#page1");
 	//window.location.reload(true);
-	
-	}
+	crearListaNovedades();
+}
