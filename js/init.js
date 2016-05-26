@@ -9,10 +9,6 @@ function init(){
 	//$("#pa2").focus();
 	
 	
-	//globo();
-	//onLoad();
-	
-	//cargaweb();
 	
 	if ((typeof xcorreo == 'undefined') || (xcorreo == "")){
 		
@@ -25,6 +21,7 @@ function init(){
 		
 	}else{
 		inicio();
+		comprobarid();
 	}
 	}
 	
