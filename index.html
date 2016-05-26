@@ -214,7 +214,18 @@ $(".iframe_completo").height(altura_iframe);
  <div data-role="panel" id="overlayPanel" data-display="overlay" data-theme="a"> 
     <h3>Menú</h3>
     <div style="width:98%" data-theme="a">
-<ul data-role="listview">
+    
+    <ul data-role="listview">
+        <li data-icon="user" ><a id="reg" onClick="mostrarDatos()" style="text-shadow:none">Registro</a></li>
+        <li data-icon="bullets" ><a id="pro" onClick="cargarPrograma()" style="text-shadow:none">Programa</a></li>
+        <li data-icon="mail" ><a id="not" onClick="crearLista()" style="text-shadow:none">Noticias</a></li>
+        <li data-icon="video" ><a id="str" onClick="cargarStreaming()" style="text-shadow:none">Streaming</a></li>
+        <li data-icon="info" ><a id="pat" onClick="cargarPatrocinadores()" style="text-shadow:none">Patocinadores</a></li>
+        <li data-icon="navigation"><a id="red" href="#page15" data-transition="slide" style="text-shadow:none">Web y Redes Sociales</a></li>
+        <li data-icon="delete"><a id="men" href="#pageone" data-rel="close" style="text-shadow:none">Cerrar menú</a></li>
+    </ul>    
+
+<!--<ul data-role="listview">
     <li data-icon="bullets" ><a href="#" onClick="mostrarDatos()" style="text-shadow:none">Registro</a></li>
     <li data-icon="mail" ><a onClick="crearLista()" style="text-shadow:none">Circulares</a></li>
     <li data-icon="star"><a onClick="listafavorito()" style="text-shadow:none">Favorito</a></li>
@@ -222,7 +233,8 @@ $(".iframe_completo").height(altura_iframe);
     <li data-icon="info"><a href="#page5" data-transition="slide" style="text-shadow:none">Ayuda</a></li>
     <li data-icon="info"><a href="#page8" data-transition="slide" style="text-shadow:none">Contacto</a></li>
     <li data-icon="delete"><a href="#pageone" data-rel="close" style="text-shadow:none">Cerrar menú</a></li>
-</ul>
+</ul>-->
+
 <br>
 <br>
 <center>
@@ -242,9 +254,9 @@ App Diseñada por creaTáctil S.L.
     </div>
     
     
-	 <div data-role="content" id="contenido-novedades">
+	 <div data-role="content" id="contenido-novedades" style="margin-top: 60px;">
 		
-		  <span style="font-style: italic; color: rgb(161, 199, 88); font-size: 18px; font-weight: bold; font-family: &quot;Trebuchet MS&quot;;">Últimas Noticias</span>
+		  <span id="ult" style="font-style: italic; color: rgb(161, 199, 88); font-size: 18px; font-weight: bold; font-family: &quot;Trebuchet MS&quot;;">Últimas Noticias</span>
           
           <!-- Aqui se añade el listado de mensajes -->
 		  <ul data-role="listview"  id="lista-novedades"  data-inset="true" data-theme="b" style="box-shadow: none;">
@@ -253,29 +265,28 @@ App Diseñada por creaTáctil S.L.
                    
 	 		<!--<center><div id="carga23"><img src="imagenes/cargando.gif" style="margin-top:10%"></div></center>-->
             <center><div id="carga23-novedades"><img src="imagenes/cargando.svg" style="margin-top:10%"></div></center>
-            <center>
-            <div class="ui-grid-b" style="margin-top: 35px;">
-              <div class="ui-block-a">
-              <img class="boton-tfmas" src="recursos/congreso.png" style="width: 100%;" /> 
-              </div>
-              <div class="ui-block-b">
-              <img class="boton-tfmas" src="recursos/tenerifesostenible.png" style="width: 50%;" />
-              </div>
-              <div class="ui-block-c">
-              <img class="boton-tfmas" src="recursos/cabildotenerief.png" style="width: 50%;" />
-              </div>
-            </div>
-            </center>
-          
+     
+    </div>
        
-    </div>    
-    
-    
     <!--<div  id="imgportada"  data-role="main" class="ui-content" style="margin:0; padding:0; position:fixed; width:100%">
     </div>-->
     
     <!--footer-->
     <div data-role="footer" data-theme="a" data-position="fixed" style="background-color: white; border: none;">
+    
+            <center>
+            <div class="ui-grid-b" style="margin-left: 8px;">
+              <div class="ui-block-a">
+              <img class="boton-tfmas" src="recursos/congreso.png" style="width: 180px; margin-top: 4px;" /> 
+              </div>
+              <div class="ui-block-b">
+              <img class="boton-tfmas" src="recursos/tenerifesostenible.png" style="width: 60px; margin-left: 83px;" />
+              </div>
+              <div class="ui-block-c">
+              <img class="boton-tfmas" src="recursos/cabildotenerief.png" style="width: 60px; margin-left: 46px;" />
+              </div>
+            </div>
+            </center>    
     
  	<div class="ui-grid-d" >
     
@@ -401,8 +412,8 @@ App Diseñada por creaTáctil S.L.
 <!----------------------------PAGINA 4-------------------------------->
 <div data-role="page" id="page4" data-theme="a">
 	 <div data-role="header" data-theme="a">   
-	  <a data-role="button" data-transition="slide" data-icon="carat-l" data-iconpos="notext" onClick="inicio();" data-theme="a">Atrás</a>
-      <h1>Noticias</h1>
+	  <a data-role="button" data-transition="slide" data-icon="home" data-iconpos="notext" onClick="inicio();" data-theme="a">Atrás</a>
+      <h1 id="titulo-noticias">Noticias</h1>
 	<!--<a href="#page1" data-role="button" data-icon="home" onClick="inicio()">Inicio</a> -->
     </div> 
 	
@@ -464,7 +475,7 @@ App Diseñada por creaTáctil S.L.
 <!----------------------------PAGINA 5-------------------------------->
 <div data-role="page" id="page5" data-theme="a">
 	 <div data-role="header" data-theme="a">
-    <a href="#page1" data-role="button" data-transition="slide" data-icon="carat-l" data-iconpos="notext" onClick="globo(), portada()" data-theme="a">Atrás</a>
+    <a href="#page1" data-role="button" data-transition="slide" data-icon="home" data-iconpos="notext" onClick="globo(), portada()" data-theme="a">Atrás</a>
 		<h1 style=" margin-left:20px; margin-right:20px;">PÁGINA DE AYUDA</h1>
 	</div>
 	
@@ -585,7 +596,7 @@ La finalidad de la cesión es actualizar la base de datos de Tenerife + Sostenib
 <!----------------------------PAGINA 8------------------------------->
 <div data-role="page" id="page8" data-theme="a">
 	 <div data-role="header" data-theme="a">
-    <a href="#page1" data-role="button" data-transition="slide" data-icon="carat-l" data-iconpos="notext" onClick="globo(), portada()" data-theme="a">Atrás</a>
+    <a href="#page1" data-role="button" data-transition="slide" data-icon="home" data-iconpos="notext" onClick="globo(), portada()" data-theme="a">Atrás</a>
 		<h1 style=" margin-left:20px; margin-right:20px">PÁGINA DE CONTACTO</h1>
 	</div>
 	
@@ -702,7 +713,7 @@ La finalidad de la cesión es actualizar la base de datos de Tenerife + Sostenib
        <div data-role="header">
       <!--<a class="ui-btn-left" data-mini="true" href="#page1" data-role="button" data-transition="slide" data-icon="carat-l" data-iconpos="notext" data-theme="a"></a>-->
       
-      <a class="ui-btn-left" data-mini="true" data-role="button" data-transition="slide" data-icon="carat-l" data-iconpos="notext" data-theme="a" onClick="inicio();"></a>
+      <a class="ui-btn-left" data-mini="true" data-role="button" data-transition="slide" data-icon="home" data-iconpos="notext" data-theme="a" onClick="inicio();"></a>
        <h1>WEB</h1>
         
       </div>
@@ -822,7 +833,7 @@ La finalidad de la cesión es actualizar la base de datos de Tenerife + Sostenib
 <div data-role="page" data-theme="a" id="page16">
 
        <div data-role="header">
-      <a class="ui-btn-left" data-mini="true" data-role="button" data-transition="slide" data-icon="carat-l" data-iconpos="notext" data-theme="a" onClick="inicio();"></a>
+      <a class="ui-btn-left" data-mini="true" data-role="button" data-transition="slide" data-icon="home" data-iconpos="notext" data-theme="a" onClick="inicio();"></a>
        <h1 id="titulo-patrocinadores">Patrocinadores</h1>
         
       </div>
@@ -879,7 +890,7 @@ La finalidad de la cesión es actualizar la base de datos de Tenerife + Sostenib
 <div data-role="page" data-theme="a" id="page17">
 
        <div data-role="header">
-      <a class="ui-btn-left" data-mini="true" data-role="button" data-transition="slide" data-icon="carat-l" data-iconpos="notext" data-theme="a" onClick="inicio();"></a>
+      <a class="ui-btn-left" data-mini="true" data-role="button" data-transition="slide" data-icon="home" data-iconpos="notext" data-theme="a" onClick="inicio();"></a>
        <h1>Streaming</h1>
         
       </div>
@@ -890,7 +901,14 @@ La finalidad de la cesión es actualizar la base de datos de Tenerife + Sostenib
       		
       </div>
  
-
+	  <br>
+	  <br>
+	  <div>
+      <center>
+        <label id="texto1" style="font-weight:bold; color:#81bc00">Sigue en directo el Congreso</label>
+        <label id="texto2" style="font-weight:bold; color:#81bc00">Internacional Tenerife + Sostenible</label>
+      </center>
+      </div>
      
      <!--footer-->  
     <div data-role="footer" data-theme="a" data-position="fixed" style="background-color: white; border: none;">   
@@ -934,7 +952,7 @@ La finalidad de la cesión es actualizar la base de datos de Tenerife + Sostenib
 <div data-role="page" data-theme="a" id="page18">
 
        <div data-role="header">
-      <a class="ui-btn-left" data-mini="true" data-role="button" data-transition="slide" data-icon="carat-l" data-iconpos="notext" data-theme="a" onClick="inicio();"></a>
+      <a class="ui-btn-left" data-mini="true" data-role="button" data-transition="slide" data-icon="home" data-iconpos="notext" data-theme="a" onClick="inicio();"></a>
        <h1 id="titulo-programa">Programa</h1>
 
       </div>
@@ -1025,7 +1043,7 @@ La finalidad de la cesión es actualizar la base de datos de Tenerife + Sostenib
         		<label for="pa2">Password:</label>
         		<input type="password" name="pa2" id="pa22">
                 <label>If you access for the first time, sign up.</label>
-                <a data-role="button"  data-icon="check" data-transition="slide" onClick="loginVal2()" data-inline="true" style="width:90px;  text-shadow:none">Enter</a>
+                <a data-role="button"  data-icon="check" data-transition="slide" onClick="loginVal22()" data-inline="true" style="width:90px;  text-shadow:none">Enter</a>
                 <a data-role="button" data-icon="edit" href="#page7en" style="width:90px; text-shadow:none" data-inline="true">Sign up</a>
                               		
            </form> 

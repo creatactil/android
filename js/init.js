@@ -9,8 +9,8 @@ function init(){
 	//$("#pa2").focus();
 	
 	
-	globo();
-	onLoad();
+	//globo();
+	//onLoad();
 	
 	//cargaweb();
 	

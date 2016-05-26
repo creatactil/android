@@ -30,7 +30,7 @@ function cargarPrograma() {
 			$('#titulo-programa').html('Programa');
 		}
 
-		//$("#cargando-tfmas").hide();
+		//$('.iframe_completo').css({'background-image' : 'none'});
 			
 }
 
@@ -64,6 +64,8 @@ function cargarPatrocinadores() {
 		}else{
 			$('#titulo-patrocinadores').html('Patrocinadores');
 		}
+		
+		//$('.iframe_completo').css({'background-image' : 'none'});
 			
 }
 
@@ -140,11 +142,14 @@ function cargarStreaming2() {
 
 		if (localStorage.idioma == 'en') {
 			//$(".iframe_streaming").prop('src','http://broadcaststreaming.es/tenerifemas_eng.php');
-			$(".iframe_streaming").prop('src',localStorage.enlaceEsp);
+			$(".iframe_streaming").prop('src',localStorage.enlaceEng);
 
 		}else{
 			//$(".iframe_streaming").prop('src','http://broadcaststreaming.es/tenerifemas_esp.php');
-			$(".iframe_streaming").prop('src',localStorage.enlaceEng);
+			$(".iframe_streaming").prop('src',localStorage.enlaceEsp);
 		}
+		
+		
+		//$('.iframe_streaming').css({'background-image' : 'none'});
 			
 }

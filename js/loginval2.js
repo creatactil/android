@@ -81,7 +81,7 @@ function loginVal22(){
 		data: {usuario: xusuario2, pa2: xpa22},
 		error: function() {
        	 //navigator.notification.alert("Ha surgido un error.\nPor favor compruebe su conexión a internet o el correo y la contraseña.");
-		 alert("An error has arisen. \nPlease check your Internet connection or mail and password .");
+		 alert("An error has arisen. Please check your Internet connection or mail and password .");
 		
 		 
    		},

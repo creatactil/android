@@ -1,6 +1,6 @@
 function crearListaNovedades() {
 				
-		$.mobile.changePage("#page1", {transition: "fade"}, true, true);
+		//$.mobile.changePage("#page1", {transition: "fade"}, true, true);
 	
 		$('#lista-novedades').empty();
         $("#carga23-novedades").show();
@@ -71,7 +71,7 @@ function crearListaNovedades() {
 			'<p style="margin:-1em; padding:0;">' +
             '<div data-role="fieldcontain" class="result" >' +
             '<img src="'+enlace+'" style="width: 100%;">'+
-            '<p style="margin:0; padding:0; color:#000; font-size: 1.1em ">'+item.titulo+'</p>'+
+            '<p style="margin:0; padding:0; color:#000; font-size: 14px; font-weight: bold; margin-top: 15px">'+item.titulo+'</p>'+
             '<p style="margin:0; padding:0; color:#000; font-size: 0.9em ">'+item.fecha+'</p>'+
 			'<p>'+ item.texto + '</p>' +
             '</div>' +								  

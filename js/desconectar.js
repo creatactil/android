@@ -1,13 +1,15 @@
 function desconectar(){
 	
 	var xidioma = localStorage.idioma;
+	localStorage.removeItem("correo");
 	
 	if(xidioma== "en"){
-		localStorage.removeItem("numero");
-		$.mobile.changePage("#pagina0en")
+		
+	$.mobile.changePage("#pagina0en")
+		
 	}else{
-		localStorage.removeItem("numero");
-		$.mobile.changePage("#pagina0");
+		
+	$.mobile.changePage("#pagina0");
 		
 		}
 	}
