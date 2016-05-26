@@ -65,7 +65,7 @@ var app = {
     successHandler: function(result) {
        //alert('Callback Success! Result = '+result)
 	   document.getElementById('regId').value = result;
-	   //alert(result);
+	   alert(result);
     },
     errorHandler:function(error) {
         alert(error);
