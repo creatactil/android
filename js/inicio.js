@@ -1,6 +1,6 @@
 function inicio(){
 	//globo();
-	
+	comprobarid();
 	
 	if (localStorage.idioma == 'en') {
 		$.mobile.changePage("#page1");
