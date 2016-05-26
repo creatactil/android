@@ -20,6 +20,7 @@ function init(){
 			}
 		
 	}else{
+				
 		inicio();
 		comprobarid();
 	}

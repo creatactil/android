@@ -1,6 +1,6 @@
 function inicio(){
 	//globo();
-	comprobarid();
+	
 	
 	if (localStorage.idioma == 'en') {
 		$.mobile.changePage("#page1");
@@ -44,7 +44,7 @@ function inicio(){
 	
 	
 	
+	comprobarid();
 	
-	//window.location.reload(true);
 	crearListaNovedades();
 }
